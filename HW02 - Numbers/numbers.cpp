@@ -6,7 +6,7 @@
 
 #include <iostream>
 #include <string>
-using namespace std; 
+using namespace std;
 
 int main() {
     int intNumberOne = 0;
@@ -15,8 +15,8 @@ int main() {
     int intDifference = 0;
     int intProduct = 0;
     float floatRatio = 0;
-    char charCaseSelection = 'x'; // used for switch statements
     string strName = "Jackson";
+    string strOutputOfSizeComparison = "Something has gone very wrong.";
 
     // taking input
     cout << "Please enter your name: ";
@@ -25,8 +25,7 @@ int main() {
     cin >> intNumberOne;
     // makes sure that the number entered is actually an integer
     // from http://www.cplusplus.com/forum/beginner/58833/#msg317499
-    while(!cin)
-    {
+    while(!cin){
         cout << "Please enter an integer! ";
         cin.clear();
         cin.ignore();
@@ -36,8 +35,7 @@ int main() {
     cin >> intNumberTwo;
     // makes sure that the number entered is actually an integer
     // from http://www.cplusplus.com/forum/beginner/58833/#msg317499
-    while(!cin)
-    {
+    while(!cin){
         cout << "Please enter an integer! ";
         cin.clear();
         cin.ignore();
@@ -48,38 +46,25 @@ int main() {
     intSum = intNumberOne + intNumberTwo;
     intProduct = intNumberOne * intNumberTwo;
 
-    // evaluates which number is bigger, or if the two numbers are equal
+    // size evaluation and further processing
     if (intNumberOne > intNumberTwo){
-        charCaseSelection = 'a';
         intDifference = intNumberOne - intNumberTwo;
         floatRatio = (float) intNumberOne / intNumberTwo; // used this line https://stackoverflow.com/a/30343884
+        strOutputOfSizeComparison = "Your first number, " + to_string(intNumberOne) + ", is larger than your second number, " + to_string(intNumberTwo) + "."; // used part of this answer https://stackoverflow.com/a/25895736
     } else if(intNumberOne < intNumberTwo){
-        charCaseSelection = 'b';
         intDifference = intNumberTwo - intNumberOne;
         floatRatio = (float) intNumberTwo / intNumberOne; // used this line https://stackoverflow.com/a/30343884
+        strOutputOfSizeComparison = "Your second number, " + to_string(intNumberTwo) + ", is larger than your first number, " + to_string(intNumberOne) + "."; // used part of this answer https://stackoverflow.com/a/25895736
     } else if(intNumberOne = intNumberTwo){
-        charCaseSelection = 'c';
         intDifference = 0;
         floatRatio = 1;
+        strOutputOfSizeComparison = "Your two numbers are identical, so one is not larger than the other."; 
     }
 
     // and the output!
     cout << "Howdy, " << strName << "!" << endl;
     cout << "Your numbers were " << intNumberOne << " and " << intNumberTwo <<  "." << endl;
-    switch (charCaseSelection){
-        case 'a':
-            cout << "Your first number, " << intNumberOne << ", is larger than your second number, " << intNumberTwo << "." << endl;
-            break;
-        case 'b':
-            cout << "Your second number, " << intNumberTwo << ", is larger than your first number, " << intNumberOne << "." << endl;
-            break;
-        case 'c':
-            cout << "Your two numbers are identical, so one is not bigger than the other." << endl;
-            break;
-        case 'x':
-            cout << "Something has gone very wrong. You should not see this." << endl;
-            break;
-    }
+    cout << strOutputOfSizeComparison << endl;
     cout << "The sum of your numbers is " << intSum << "." << endl;
     cout << "The difference of your numbers is " << intDifference << "." << endl;
     cout << "The product of your numbers is " << intProduct << "." << endl;
