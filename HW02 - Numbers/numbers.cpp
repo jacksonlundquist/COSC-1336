@@ -15,6 +15,7 @@ int main() {
     int intDifference = 0;
     int intProduct = 0;
     float floatRatio = 0;
+    char charCaseSelection = 'x'; // used for switch statements
     string strName = "Jackson";
 
     // taking input
@@ -46,22 +47,39 @@ int main() {
     // processing the input
     intSum = intNumberOne + intNumberTwo;
     intProduct = intNumberOne * intNumberTwo;
+
+    // evaluates which number is bigger, or if the two numbers are equal
     if (intNumberOne > intNumberTwo){
+        charCaseSelection = 'a';
         intDifference = intNumberOne - intNumberTwo;
         floatRatio = (float) intNumberOne / intNumberTwo; // used this line https://stackoverflow.com/a/30343884
-    } else {
+    } else if(intNumberOne < intNumberTwo){
+        charCaseSelection = 'b';
         intDifference = intNumberTwo - intNumberOne;
         floatRatio = (float) intNumberTwo / intNumberOne; // used this line https://stackoverflow.com/a/30343884
+    } else if(intNumberOne = intNumberTwo){
+        charCaseSelection = 'c';
+        intDifference = 0;
+        floatRatio = 1;
     }
 
     // and the output!
     cout << "Howdy, " << strName << "!" << endl;
     cout << "Your numbers were " << intNumberOne << " and " << intNumberTwo <<  "." << endl;
-    if (intNumberOne > intNumberTwo){
-        cout << "Your first number, " << intNumberOne << ", is larger than your second number, " << intNumberTwo << "." << endl;
-    } else {
-        cout << "Your second number, " << intNumberTwo << ", is larger than your first number, " << intNumberOne << "." << endl;
-    };
+    switch (charCaseSelection){
+        case 'a':
+            cout << "Your first number, " << intNumberOne << ", is larger than your second number, " << intNumberTwo << "." << endl;
+            break;
+        case 'b':
+            cout << "Your second number, " << intNumberTwo << ", is larger than your first number, " << intNumberOne << "." << endl;
+            break;
+        case 'c':
+            cout << "Your two numbers are identical, so one is not bigger than the other." << endl;
+            break;
+        case 'x':
+            cout << "Something has gone very wrong. You should not see this." << endl;
+            break;
+    }
     cout << "The sum of your numbers is " << intSum << "." << endl;
     cout << "The difference of your numbers is " << intDifference << "." << endl;
     cout << "The product of your numbers is " << intProduct << "." << endl;
