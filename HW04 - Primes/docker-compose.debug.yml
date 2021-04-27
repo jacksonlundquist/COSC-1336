@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  cosc:
+    image: primes
+    build:
+      context: .
+      dockerfile: ./Dockerfile
