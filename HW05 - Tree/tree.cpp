@@ -12,7 +12,7 @@ int main() {
     std::cin >> intTreeHeight;
     
     // prints the tree
-    for (int intTreeHeightFor = intTreeHeight; intTreeHeightFor > 0; intTreeHeightFor--) {
+    for (int intTreeHeightFor = intTreeHeight - 1; intTreeHeightFor > 0; intTreeHeightFor--) {
         // prints the empty space before the leaves
         int intSpaces = intTreeHeightFor-1;
         for (; intSpaces > 0 ; intSpaces--) {
@@ -28,14 +28,10 @@ int main() {
     }
     
     // prints the tree stump
-    for (int intRepeatTwice = 2; intRepeatTwice > 0 ; intRepeatTwice--){
-        for (int intSpacesStump = intTreeHeight - 1; intSpacesStump > 0 ; intSpacesStump--) {
-            std::cout << charBlankSpace;
-        }
-        std::cout << "*" << std::endl;
+    for (int intSpacesStump = intTreeHeight - 2; intSpacesStump > 0 ; intSpacesStump--) {
+        std::cout << charBlankSpace;
     }
-
-
-
+    std::cout << "*" << std::endl;
+    
     return 0;
 }
